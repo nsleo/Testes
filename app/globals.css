@@ -245,6 +245,14 @@ a {
   overflow: hidden;
 }
 
+.hero-block__canvas-shell canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
 .hero-block__canvas-shell::before,
 .hero-block__canvas-shell::after {
   content: "";
