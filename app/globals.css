@@ -15,7 +15,7 @@
   --shadow: 0 32px 120px rgba(0, 0, 0, 0.42);
   --gutter: clamp(1.2rem, 2vw, 2rem);
   --section-gap: clamp(5rem, 10vw, 10rem);
-  --max-width: 1400px;
+  --max-width: 100%;
   --font-display: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -61,7 +61,7 @@ a {
 }
 
 .experience-shell {
-  padding: 0 var(--gutter) 4rem;
+  padding: 0 0 4rem;
 }
 
 .hero-block,
@@ -70,12 +70,12 @@ a {
 .act-cards,
 .story-rail,
 .signal-wall {
-  width: min(100%, var(--max-width));
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 .hero-block {
-  padding-top: 1.5rem;
+  padding: 1.5rem var(--gutter) 0;
 }
 
 .hero-block__chrome,
@@ -380,6 +380,8 @@ a {
   margin-top: 1rem;
   border: 1px solid var(--line);
   background: var(--line);
+  border-left: 0;
+  border-right: 0;
 }
 
 .engine-band__item,
@@ -414,7 +416,7 @@ a {
 .act-cards,
 .story-rail,
 .signal-wall {
-  padding-top: var(--section-gap);
+  padding: var(--section-gap) var(--gutter) 0;
 }
 
 .motion-manifesto__header,
