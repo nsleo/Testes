@@ -3,21 +3,21 @@
 import * as motion from "motion/react-client";
 
 const signals = [
-  "No white-background institutional hero.",
-  "No repeated feature-card rhythm.",
-  "No Focar-like commercial framing.",
-  "No decorative motion without structural purpose.",
-  "Yes to cinematic weight.",
-  "Yes to interaction as value signal."
+  "Sem hero institucional em fundo branco.",
+  "Sem ritmo de features repetidas como template.",
+  "Sem enquadramento comercial com cara de site comum.",
+  "Sem animacao decorativa sem papel estrutural.",
+  "Com peso cinematografico e leitura clara.",
+  "Com interacao tratada como sinal de valor."
 ];
 
 export function SignalWall() {
   return (
     <section className="signal-wall" id="signals">
       <div className="signal-wall__topline">
-        <p>Signal wall</p>
+        <p>Parede de sinais</p>
         <a href="#top" className="button button--outline">
-          Restart sequence
+          Reiniciar sequencia
         </a>
       </div>
 

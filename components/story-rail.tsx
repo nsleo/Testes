@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const beats = [
-  "Launch with a dark field and a kinetic core.",
-  "Pin the attention on one moving thesis instead of many decorative tricks.",
-  "Open the grid only after the visitor has already felt the system move.",
-  "Keep the final signal terse, technical and expensive."
+  "Abrir com um campo escuro e um nucleo cinetico que ja define percepcao.",
+  "Prender a atencao em uma tese visual forte, nao em varios truques soltos.",
+  "Liberar grade, texto e prova depois que o usuario sente o sistema reagir.",
+  "Encerrar com sinal curto, tecnico e caro, sem excesso de explicacao."
 ];
 
 export function StoryRail() {
@@ -43,9 +43,9 @@ export function StoryRail() {
   return (
     <section className="story-rail">
       <div className="story-rail__sticky">
-        <p className="story-rail__label">Narrative rail</p>
+        <p className="story-rail__label">Trilho narrativo</p>
         <h2 className="story-rail__headline">
-          One motion thesis, repeated with variation instead of random spectacle.
+          Uma tese de movimento, repetida com variacao e controle em vez de espetaculo aleatorio.
         </h2>
       </div>
 

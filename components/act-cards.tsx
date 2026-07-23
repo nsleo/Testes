@@ -5,18 +5,18 @@ import * as motion from "motion/react-client";
 const acts = [
   {
     index: "Act I",
-    title: "Shock the visitor before any explanation.",
-    body: "Primeiro contato como performance visual: um sistema vivo, responsivo e com densidade gráfica real."
+    title: "Impactar antes de explicar.",
+    body: "O primeiro contato funciona como presenca visual: um sistema vivo, reativo e com densidade real."
   },
   {
     index: "Act II",
-    title: "Explain the method through moving systems.",
-    body: "Os blocos demonstram comportamento e não apenas benefícios escritos em cards equivalentes."
+    title: "Demonstrar metodo em movimento.",
+    body: "As secoes revelam comportamento, ritmo e controle em vez de repetir promessas em cards genericos."
   },
   {
     index: "Act III",
-    title: "Close with authority, not with a template CTA.",
-    body: "O final funciona como prova de repertório e direção, sem depender de fórmulas de landing page."
+    title: "Fechar com autoridade, nao com formula.",
+    body: "O encerramento age como prova de repertorio e direcao visual, sem cara de template comercial."
   }
 ];
 
@@ -24,10 +24,10 @@ export function ActCards() {
   return (
     <section className="act-cards" id="acts">
       <div className="act-cards__intro">
-        <p>Sequence architecture</p>
+        <p>Arquitetura em sequencia</p>
         <h2>
-          The experience now moves in three acts, each with its own visual
-          tempo and interaction weight.
+          A experiencia avanca em tres atos, cada um com seu proprio peso visual,
+          ritmo de scroll e funcao narrativa.
         </h2>
       </div>
 

@@ -5,14 +5,8 @@ import { animate, createTimeline, stagger, svg } from "animejs";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { HeroConstellation } from "@/components/hero-constellation";
 
-const tags = [
-  "three.js scene core",
-  "anime.js svg systems",
-  "gsap sequencing",
-  "motion layout transitions"
-];
-
-const titleLines = ["HEAVY", "MOTION", "PRECISE", "CONTROL"];
+const railMarks = ["01", "02", "03", "04"];
+const titleLines = ["Museu", "da", "Presenca", "Digital"];
 
 export function KineticHero() {
   const rootRef = useRef<HTMLElement>(null);
@@ -25,10 +19,9 @@ export function KineticHero() {
   const copyY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -180]);
   const copyOpacity = useTransform(scrollYProgress, [0, 0.72, 1], prefersReducedMotion ? [1, 1, 1] : [1, 0.92, 0.18]);
   const wireY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -110]);
-  const wireRotate = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -4]);
-  const frameLeftY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -80]);
-  const frameRightY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, 120]);
-  const bottomY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, 70]);
+  const wireRotate = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -2]);
+  const noteY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, 90]);
+  const railY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, -60]);
   const stageScale = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [1, 1] : [1, 0.96]);
 
   useEffect(() => {
@@ -51,24 +44,23 @@ export function KineticHero() {
         delay: stagger(90)
       })
       .add(
-        ".hero-block__frame",
+        ".hero-block__rail-mark",
         {
           opacity: [0, 1],
-          scale: [0.92, 1],
-          duration: 900,
+          translateX: [-18, 0],
+          duration: 700,
           delay: stagger(120)
         },
-        "-=1300"
+        "-=1200"
       )
       .add(
-        ".hero-block__tag",
+        ".hero-block__note",
         {
-          translateY: [22, 0],
+          translateY: [28, 0],
           opacity: [0, 1],
-          duration: 700,
-          delay: stagger(70)
+          duration: 900
         },
-        "-=1100"
+        "-=1000"
       );
 
     const titleAnimation = animate(".hero-block__title-line", {
@@ -80,7 +72,7 @@ export function KineticHero() {
       ease: "outExpo"
     });
 
-    const subtitleAnimation = animate(".hero-block__subcopy, .hero-block__cta-row, .hero-block__bottomline", {
+    const subtitleAnimation = animate(".hero-block__subcopy, .hero-block__cta-row, .hero-block__caption", {
       translateY: [26, 0],
       opacity: [0, 1],
       delay: stagger(110),
@@ -96,20 +88,31 @@ export function KineticHero() {
   }, []);
 
   return (
-    <section className="hero-block" ref={rootRef}>
+    <section className="hero-block" id="top" ref={rootRef}>
       <div className="hero-block__chrome">
         <div className="hero-block__brand">
           <span className="hero-block__dot" aria-hidden="true" />
-          <span>Modo kinetic study</span>
+          <span>Atelier Performance</span>
         </div>
         <div className="hero-block__meta">
-          <span>Presentation prototype</span>
-          <span>Built for high-ticket perception</span>
+          <span>Apresentacao imersiva</span>
+          <span>Sequencia editorial escura</span>
         </div>
       </div>
 
       <motion.div className="hero-block__stage" style={{ scale: stageScale }}>
         <HeroConstellation />
+
+        <motion.div className="hero-block__rail" style={{ y: railY }}>
+          <span className="hero-block__rail-line" />
+          <div className="hero-block__rail-marks">
+            {railMarks.map((mark) => (
+              <span key={mark} className="hero-block__rail-mark">
+                {mark}
+              </span>
+            ))}
+          </div>
+        </motion.div>
 
         <motion.div
           className="hero-block__wireframe"
@@ -134,7 +137,7 @@ export function KineticHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            The opening must feel like a controlled system booting in front of the visitor.
+            Um palco de abertura para vender presenca premium antes da explicacao comercial.
           </motion.p>
 
           <h1 className="hero-block__title">
@@ -146,56 +149,38 @@ export function KineticHero() {
           </h1>
 
           <p className="hero-block__subcopy">
-            This hero now behaves like a presentation engine: one scene, one thesis,
-            multiple visible motion systems, and zero institutional landing-page rhythm.
+            Tipografia, profundidade e movimento trabalham como sistema. A leitura
+            entra primeiro, o impacto visual confirma depois e a pagina ja comeca cara.
           </p>
 
           <div className="hero-block__cta-row">
             <a href="#acts" className="button button--solid">
-              Enter sequence
+              Entrar na experiencia
             </a>
             <a href="#signals" className="button button--outline">
-              Inspect motion stack
+              Ver estrutura
             </a>
-          </div>
-
-          <div className="hero-block__ticker">
-            {tags.map((tag) => (
-              <span key={tag} className="hero-block__tag">
-                {tag}
-              </span>
-            ))}
           </div>
         </motion.div>
 
-        <div className="hero-block__frames">
-          <motion.div
-            className="hero-block__frame hero-block__frame--left"
-            style={{ y: frameLeftY }}
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span>Vector field</span>
-            <strong>Realtime orbital ribbons with pointer response.</strong>
-          </motion.div>
+        <motion.aside
+          className="hero-block__note"
+          style={{ y: noteY }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="hero-block__note-kicker">Nota curatorial</p>
+          <p>
+            A cena 3D nao disputa com o conteudo. Ela sustenta atmosfera, responde ao
+            scroll e deixa a tipografia carregar autoridade.
+          </p>
+        </motion.aside>
 
-          <motion.div
-            className="hero-block__frame hero-block__frame--right"
-            style={{ y: frameRightY }}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span>Sequence note</span>
-            <strong>Type, geometry and scene enter in layered timing, not one generic fade.</strong>
-          </motion.div>
-        </div>
-
-        <motion.div className="hero-block__bottomline" style={{ y: bottomY }}>
-          <span>Scene budget: 1 WebGL surface</span>
-          <span>Motion stack: anime.js + motion + gsap + three.js</span>
-          <span>Intent: cinematic premium without template behavior</span>
+        <motion.div className="hero-block__caption" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.1, delay: 0.65 }}>
+          <span>Palco unico</span>
+          <span>Scroll em camadas</span>
+          <span>Ritmo editorial</span>
         </motion.div>
       </motion.div>
     </section>

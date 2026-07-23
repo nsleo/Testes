@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import { animate, createTimeline, stagger, svg } from "animejs";
 
 const phrases = [
-  "Abertura com gesto e resposta física.",
-  "Tipografia como matéria em movimento.",
-  "Estrutura que troca seções por atos.",
-  "Interação como argumento de valor."
+  "Abertura com gesto, profundidade e resposta ao ponteiro.",
+  "Tipografia tratada como materia principal da cena.",
+  "Estrutura pensada por atos, nao por modulos repetidos.",
+  "Interacao usada para reforcar valor, nao para distrair."
 ];
 
 export function MotionManifesto() {
@@ -81,11 +81,11 @@ export function MotionManifesto() {
   return (
     <section className="motion-manifesto" id="manifesto" ref={rootRef}>
       <div className="motion-manifesto__header">
-        <p className="motion-manifesto__label">Motion language / anti-template sequence</p>
+        <p className="motion-manifesto__label">Linguagem de movimento / sequencia autoral</p>
         <h2>
-          <span className="motion-manifesto__title-word">Not a page.</span>
-          <span className="motion-manifesto__title-word">A controlled collision</span>
-          <span className="motion-manifesto__title-word">between code, type and motion.</span>
+          <span className="motion-manifesto__title-word">Nao e uma landing comum.</span>
+          <span className="motion-manifesto__title-word">E uma composicao controlada</span>
+          <span className="motion-manifesto__title-word">entre codigo, tipografia e movimento.</span>
         </h2>
       </div>
 
